@@ -32,5 +32,24 @@ namespace MyEvents
         {
             MessageBox.Show("自行產生註冊事件的button aaa");
         }
+
+        private void button1_Click(object sender, EventArgs e)//委派聯動事件
+        {
+            Class1 x = new Class1();
+            x.InvalidPrice += X_InvalidPrice;// +=X_InvalidPrice產生事件方法
+
+            x.OnInvalidPrice(1001);
+        }
+
+        private void X_InvalidPrice(int Price)//產生的事件方法
+        {
+            MessageBox.Show("Invalid Price -" + Price);
+        }
+
+        private void button4_Click(object sender, EventArgs e)//(情境)在事件方法無Invoke時
+        {
+            Class1 y = new Class1();
+            y.OnInvalidPrice(1001);
+        }
     }
 }
