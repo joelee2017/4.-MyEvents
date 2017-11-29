@@ -51,5 +51,34 @@ namespace MyEvents
             Class1 y = new Class1();
             y.OnInvalidPrice(1001);
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.progressBar1.Maximum = 10000;
+            ClsWidget widget1 = new ClsWidget();
+            widget1.PercentDone += Widget1_PercentDone;
+
+            widget1.LongTask(10000, 1);
+        }
+
+        
+        private void Widget1_PercentDone(int percent, ref bool cancel)
+        {
+            this.label1.Text = ((float)percent/10000).ToString("p"); //百分比//percent.ToString();
+            this.progressBar1.Value = percent;
+
+            if(m_Cancel ==true)
+            {
+                cancel = true;
+                this.label1.Text = "0";
+                this.progressBar1.Value = 0;
+            }
+        }
+
+        bool m_Cancel;
+        private void button7_Click(object sender, EventArgs e)
+        {
+            m_Cancel = true;
+        }
     }
 }
