@@ -22,8 +22,8 @@ namespace MyEvents
                 // Invoke 呼叫 client 所註冊的事件方法 執行
                 if(this.InvalidPrice != null)
                 {
-                    //this.InvalidPrice.Invoke(Price);
-                    InvalidPrice(Price);
+                    this.InvalidPrice.Invoke(Price);
+                    //InvalidPrice(Price);簡寫
                 }
                 
             }

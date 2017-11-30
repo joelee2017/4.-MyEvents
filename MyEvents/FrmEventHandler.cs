@@ -52,6 +52,11 @@ namespace MyEvents
             y.OnInvalidPrice(1001);
         }
 
+        /// <summary>
+        /// 進度條讀取事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button6_Click(object sender, EventArgs e)
         {
             this.progressBar1.Maximum = 10000;
