@@ -69,6 +69,7 @@ namespace MyEvents
         
         private void Widget1_PercentDone(int percent, ref bool cancel)
         {
+            
             this.label1.Text = ((float)percent/10000).ToString("p"); //百分比//percent.ToString();
             this.progressBar1.Value = percent;
 
